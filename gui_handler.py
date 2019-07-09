@@ -1,7 +1,7 @@
 from pymongo import MongoClient
-import json
+import sys, json, time
 import system_handler
-import sys
+from generate_id import getUniqueID
 
 def assembleDoc(bookData, wordForm, sentence, sentID):
 	
@@ -66,12 +66,14 @@ def prepareMongoWrite(inPath, outDir):
 						senseKeys = list(sense.keys())
 						if ('definition' in senseKeys):
 							definition = {
+								'defid': getUniqueID(word),
 								'word': word,
 								'phonetic': phonetic,
 								'category': category,
 								'definition' : sense['definition']
 							}
 							definitionList.append(definition)
+							time.sleep(0.1)
 	#print(definitionList)
 	#system_handler.writeListToFile(definitionList, outPath)
 	
