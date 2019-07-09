@@ -5,7 +5,7 @@ import lexicon_gui
 
 win = tk.Tk()
 
-win.title("Write Google Dictionary To MongoDB")
+win.title("Process Google Dictionary Data")
 win.geometry("760x420") 
 win.resizable(0, 0) 
 
