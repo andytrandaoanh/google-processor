@@ -33,3 +33,14 @@ def writeListToFile(vlist, vpath):
 def writeDataToJSON(dataIn, pathOut):
 	with open(pathOut, 'w', encoding ="utf-8") as outfile:  
 		json.dump(dataIn, outfile)
+
+def getFileFromFolder(dirJSON):
+
+	JSON_EXT = ".json"
+	fileList = []
+
+	for file in os.listdir(dirJSON):
+	    if file.endswith(JSON_EXT):
+	        fileList.append(os.path.join(dirJSON, file))
+
+	return fileList
